@@ -2,6 +2,7 @@ let formInput = document.getElementById('customers');
 let choice_New = document.getElementById("new_btn");
 let choice_Browse = document.getElementById("browse_btn");
 let choice_Delete = document.getElementById("delete_btn");
+let customers = [];
 formInput.addEventListener("submit", createNewCustomer);
 choice_New.addEventListener("click", addNewCustomer);
 choice_Browse.addEventListener("click", browse_Customers);
@@ -12,6 +13,12 @@ function addNewCustomer() {
 
 function browse_Customers() {
     document.getElementById('add_Customer').style.display = 'none';
+    if (localStorage.getItem("BobCustomers")){
+        customers = JSON.parse(localStorage.getItem("BobCustomers"))
+    } else {
+        alert ("Customers base empty");
+    }
+
     document.getElementById("browse_Customers").style.display = 'initial';
 
 }
