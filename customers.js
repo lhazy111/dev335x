@@ -1,9 +1,11 @@
 let formInput = document.getElementById('customers');
 let choice_New = document.getElementById("new_btn");
 let choice_Browse = document.getElementById("browse_btn");
-let choice_Delete = document.getElementById("delete_btn");
+let choice_Delete = document.getElementById("del_btn");
 let choice_prev = document.getElementById("prev_btn");
 let choice_next = document.getElementById("next_btn");
+let delete_yes = document.getElementById("delete_yes");
+let delete_no = document.getElementById("delete_no");
 let customersList = [];
 let customer_number = 1;
 formInput.addEventListener("submit", createNewCustomer);
@@ -12,9 +14,27 @@ choice_Browse.addEventListener("click", browse_Customers);
 choice_next.addEventListener("click", showCustomerNumberUp);
 choice_prev.addEventListener("click", showCustomerNumberDown);
 choice_Delete.addEventListener("click", deleteCustomer);
+delete_yes.addEventListener("click",delete_ok);
+delete_no.addEventListener("click", delete_no_ok);
+
 
 function deleteCustomer(){
-    
+    document.getElementById('choice3').style.display = 'initial';
+
+}
+
+function delete_ok(){
+    customersList.splice(customer_number-1,1);
+    localStorage.removeItem("BobCustomers");
+    localStorage.setItem("BobCustomers", JSON.stringify(customersList));
+    alert("Customer deleted");
+    document.getElementById('choice3').style.display = 'none';
+    customer_number = 1;
+    display_Customer();
+}
+
+function delete_no_ok(){
+    document.getElementById('choice3').style.display = 'none';
 }
 
 function showCustomerNumberUp() {
@@ -66,19 +86,12 @@ function createNewCustomer() {
         c_notes: formInput.c_notes.value,
     };
     console.log(newCustomerObject);
-    alert('Customers name:' + newCustomerObject.c_name);
-    alert('Customers phone:' + newCustomerObject.c_phone);
-    alert('Customers notes:' + newCustomerObject.c_notes);
     if (localStorage.getItem("BobCustomers")) {
-        alert('dodanie');
         let BobCustomers = JSON.parse(localStorage.getItem("BobCustomers"));
-        alert('dodanie1');
         BobCustomers.push(newCustomerObject);
         localStorage.setItem('BobCustomers', JSON.stringify(BobCustomers));
     } else {
-        alert('pierwszy');
         localStorage.setItem("BobCustomers", JSON.stringify([newCustomerObject]));
-
     }
     formInput.reset();
 }
