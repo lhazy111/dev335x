@@ -85,7 +85,6 @@ function createNewCustomer() {
         c_phone: formInput.c_phone.value,
         c_notes: formInput.c_notes.value,
     };
-    console.log(newCustomerObject);
     if (localStorage.getItem("BobCustomers")) {
         let BobCustomers = JSON.parse(localStorage.getItem("BobCustomers"));
         BobCustomers.push(newCustomerObject);
