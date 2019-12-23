@@ -1,4 +1,6 @@
 let formInput = document.getElementById('customers');
+let main_Window = document.getElementById("main_Window");
+let message_Box = document.getElementById("message");
 let choice_New = document.getElementById("new_btn");
 let choice_Browse = document.getElementById("browse_btn");
 let choice_Delete = document.getElementById("del_btn");
@@ -6,6 +8,7 @@ let choice_prev = document.getElementById("prev_btn");
 let choice_next = document.getElementById("next_btn");
 let delete_yes = document.getElementById("delete_yes");
 let delete_no = document.getElementById("delete_no");
+let msg_box_btn = document.getElementById("msg_Box_off");
 let customersList = [];
 let customer_number = 1;
 formInput.addEventListener("submit", createNewCustomer);
@@ -14,32 +17,43 @@ choice_Browse.addEventListener("click", browse_Customers);
 choice_next.addEventListener("click", showCustomerNumberUp);
 choice_prev.addEventListener("click", showCustomerNumberDown);
 choice_Delete.addEventListener("click", deleteCustomer);
-delete_yes.addEventListener("click",delete_ok);
+delete_yes.addEventListener("click", delete_ok);
 delete_no.addEventListener("click", delete_no_ok);
+msg_box_btn.addEventListener("click", msg_box_off);
+
+function msg_box_off(){
+    message_Box.style.display = "none";
+
+}
 
 
-function deleteCustomer(){
+function deleteCustomer() {
     document.getElementById('choice3').style.display = 'initial';
 
 }
 
-function delete_ok(){
-    customersList.splice(customer_number-1,1);
-    alert("Customer deleted");
-    alert("Customers list length " + customersList.length);
+function delete_ok() {
+    customersList.splice(customer_number - 1, 1);
+    //alert("Customer deleted");
+    //alert("Customers list length " + customersList.length);
     localStorage.removeItem("BobCustomers");
-    if (customersList.length>0){
-    localStorage.setItem("BobCustomers", JSON.stringify(customersList));
-    document.getElementById('choice3').style.display = 'none';
-    customer_number--;
-    display_Customer();}
+    if (customersList.length > 0) {
+        localStorage.setItem("BobCustomers", JSON.stringify(customersList));
+        document.getElementById('choice3').style.display = 'none';
+        if (customer_number > 1){
+        customer_number--;
+        } else {
+            customer_number = 1;
+        }
+        display_Customer();
+    }
     else {
         document.getElementById('browse_Customers').style.display = 'none';
-        alert('customers base empty');
+        no_Customers()    
     }
 }
 
-function delete_no_ok(){
+function delete_no_ok() {
     document.getElementById('choice3').style.display = 'none';
 }
 
@@ -63,6 +77,7 @@ function showCustomerNumberDown() {
 
 
 function addNewCustomer() {
+    msg_box_off();
     document.getElementById('browse_Customers').style.display = 'none';
     document.getElementById('add_Customer').style.display = 'initial';
 }
@@ -72,11 +87,13 @@ function browse_Customers() {
     if (localStorage.getItem("BobCustomers")) {
         customersList = JSON.parse(localStorage.getItem("BobCustomers"));
         document.getElementById("browse_Customers").style.display = 'initial';
-    display_Customer();
+        display_Customer();
     } else {
-        alert("Customers base empty");
+        no_Customers();
+       //alert ("Customers base empty");
+
     }
-    
+
 }
 
 function display_Customer() {
@@ -100,4 +117,9 @@ function createNewCustomer() {
         localStorage.setItem("BobCustomers", JSON.stringify([newCustomerObject]));
     }
     formInput.reset();
+}
+
+function no_Customers(){
+    message_Box.style.display = "initial";
+    document.getElementById("message_Content").innerHTML = "NO CUSTOMERS IN DATABASE";
 }
