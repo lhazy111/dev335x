@@ -1,4 +1,5 @@
 let formInput = document.getElementById('customers');
+let submit_Customer = document.getElementById("add_customer_btn");
 let main_Window = document.getElementById("main_Window");
 let message_Box = document.getElementById("message");
 let choice_New = document.getElementById("new_btn");
@@ -11,14 +12,15 @@ let delete_no = document.getElementById("delete_no");
 let msg_box_btn = document.getElementById("msg_Box_off");
 let customersList = [];
 let customer_number = 1;
-formInput.addEventListener("submit", createNewCustomer);
+//formInput.addEventListener("submit", createNewCustomer);
+submit_Customer.addEventListener("click", createNewCustomer);
 choice_New.addEventListener("click", addNewCustomer);
 choice_Browse.addEventListener("click", browse_Customers);
 choice_next.addEventListener("click", showCustomerNumberUp);
 choice_prev.addEventListener("click", showCustomerNumberDown);
 choice_Delete.addEventListener("click", deleteCustomer);
 delete_yes.addEventListener("click", delete_ok);
-delete_no.addEventListener("click", delete_no_ok);
+delete_no.addEventListener("click", delete_hide);
 msg_box_btn.addEventListener("click", msg_box_off);
 
 function msg_box_off(){
@@ -53,7 +55,7 @@ function delete_ok() {
     }
 }
 
-function delete_no_ok() {
+function delete_hide() {
     document.getElementById('choice3').style.display = 'none';
 }
 
@@ -83,6 +85,7 @@ function addNewCustomer() {
 }
 
 function browse_Customers() {
+    delete_hide();
     document.getElementById('add_Customer').style.display = 'none';
     if (localStorage.getItem("BobCustomers")) {
         customersList = JSON.parse(localStorage.getItem("BobCustomers"));
@@ -104,6 +107,8 @@ function display_Customer() {
 }
 
 function createNewCustomer() {
+    if (formInput.c_name.value.length > 0){
+        //alert('customer: ' + formInput.c_name.value);
     let newCustomerObject = {
         c_name: formInput.c_name.value,
         c_phone: formInput.c_phone.value,
@@ -117,9 +122,22 @@ function createNewCustomer() {
         localStorage.setItem("BobCustomers", JSON.stringify([newCustomerObject]));
     }
     formInput.reset();
+} else {
+    //alert("Can't be empty");
+    empty();
+    
+}
 }
 
 function no_Customers(){
     message_Box.style.display = "initial";
     document.getElementById("message_Content").innerHTML = "NO CUSTOMERS IN DATABASE";
+}
+
+function empty(){
+    document.getElementById('add_Customer').style.display = 'none';
+    message_Box.style.display = "initial";
+    document.getElementById("message_Content").innerHTML = "do not save empty form";
+
+
 }
