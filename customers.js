@@ -25,12 +25,18 @@ function deleteCustomer(){
 
 function delete_ok(){
     customersList.splice(customer_number-1,1);
-    localStorage.removeItem("BobCustomers");
-    localStorage.setItem("BobCustomers", JSON.stringify(customersList));
     alert("Customer deleted");
+    alert("Customers list length " + customersList.length);
+    localStorage.removeItem("BobCustomers");
+    if (customersList.length>0){
+    localStorage.setItem("BobCustomers", JSON.stringify(customersList));
     document.getElementById('choice3').style.display = 'none';
     customer_number = 1;
-    display_Customer();
+    display_Customer();}
+    else {
+        document.getElementById('browse_Customers').style.display = 'none';
+        alert('customers base empty');
+    }
 }
 
 function delete_no_ok(){
@@ -64,12 +70,13 @@ function addNewCustomer() {
 function browse_Customers() {
     document.getElementById('add_Customer').style.display = 'none';
     if (localStorage.getItem("BobCustomers")) {
-        customersList = JSON.parse(localStorage.getItem("BobCustomers"))
+        customersList = JSON.parse(localStorage.getItem("BobCustomers"));
+        document.getElementById("browse_Customers").style.display = 'initial';
+    display_Customer();
     } else {
         alert("Customers base empty");
     }
-    document.getElementById("browse_Customers").style.display = 'initial';
-    display_Customer();
+    
 }
 
 function display_Customer() {
