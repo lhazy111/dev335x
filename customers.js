@@ -31,7 +31,7 @@ function delete_ok(){
     if (customersList.length>0){
     localStorage.setItem("BobCustomers", JSON.stringify(customersList));
     document.getElementById('choice3').style.display = 'none';
-    customer_number = 1;
+    customer_number--;
     display_Customer();}
     else {
         document.getElementById('browse_Customers').style.display = 'none';
