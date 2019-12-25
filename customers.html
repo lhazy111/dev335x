@@ -9,11 +9,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Main CSS -->
     <link rel="stylesheet" href="main.css">
     <title>BOB, Customers</title>
 </head>
 
 <body>
+
     <!--TOP NAVIGATION-->
 
     <nav class="navbar navbar-default fixed-top navbar-expand-md navbar-dark bg-dark" role="navigation">
@@ -26,137 +29,143 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Tiles<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="tiles.html">Tiles<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="paint.html">Paint</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="customers.html">Customers<span class="sr-only">(current)</span></a>
+                        <a class="nav-link active" href="customers.html">Customers<span
+                                class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!--JUMBOTRONIX-->
+    <!--JUMBOTRON-->
     <div class="jumbotron shadow">
         <h2>Customers</h2>
         <hr>
-        <div class = "container" id = "choice">
-            <div class = "row align-items-center justify-content-center">
-                <div class = "col text-center">
+        <div class="container" id="choice">
+            <div class="row align-items-center justify-content-center">
+                <div class="col text-center">
                     <button type="button" class="btn btn-secondary" id="new_btn">New</button>
                 </div>
-                <div class = "col text-center">
+                <div class="col text-center">
                     <button type="button" class="btn btn-secondary" id="browse_btn">Browse</button>
                 </div>
             </div>
         </div>
     </div>
+
     <!--M A I N   W I N D O W-->
-    
+
     <main>
-    <div class = "container" id = "main_Window">
-        <div class = "container" id = "message" style="display:none">
-            <div class = "row">
-                <div class = "col">
-                    <h1 id= "message_Content">Message</h1>
-                    <button type="button" class="btn btn-secondary" id="msg_Box_off">OK</button>
+        <div class="container" id="main_Window">
+            <div class="container" id="message" style="display:none">
+                <div class="row">
+                    <div class="col">
+                        <h1 id="message_Content">Message</h1>
+                        <button type="button" class="btn btn-secondary" id="msg_Box_off">OK</button>
+                    </div>
+                </div>
+            </div>
 
+            <!--ADD CUSTOMER-->
+
+            <div class="container" style="display:none" id="add_Customer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <form id="customers">
+                                <div class="form-group">
+                                    <label for="c_name">Name</label>
+                                    <input type="text" id="c_name" class="form-control" name="c_name"
+                                        placeholder="Input customers name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="c_phone">Phone</label>
+                                    <input type="text" id="c_phone" class="form-control" name="c_phone"
+                                        placeholder="Input customers phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="c_notes">Notes</label>
+                                    <textarea class="form-control" id="c_notes" rows="3" name="c_notes"></textarea>
+                                </div>
+                                <button type="button" class="btn btn-secondary" id="add_customer_btn">Save</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    <!--ADD CUSTOMER-->
 
-        <div class="container" style="display:none" id = "add_Customer">
+        <!--BROWSE CUSTOMERS-->
+
+        <div class="container" style="display:none" id="browse_Customers">
             <div class="container">
-            <div class="row">
-                <div class="col">
-                    <form id="customers">
-                        <div class="form-group">
-                            <label for="c_name">Name</label>
-                            <input type="text" id="c_name" class="form-control" name="c_name"
-                                placeholder="Input customers name">
-                        </div>
-                        <div class="form-group">
-                            <label for="c_phone">Phone</label>
-                            <input type="text" id="c_phone" class="form-control" name="c_phone"
-                                placeholder="Input customers phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="c_notes">Notes</label>
-                            <textarea class="form-control" id="c_notes" rows="3" name = "c_notes"></textarea>
-                            <!--input type="text"  id="c_notes" class="form-control" name="c_notes" placeholder="Input notes" maxlength = "20"-->
-                        </div>
-                        <button type="button" class="btn btn-secondary" id="add_customer_btn">Save</button>
-                    </form>
+                <div class="row">
+                    <div class="col">
+                        <h1 id="customer_number">Number</h1>
+                    </div>
                 </div>
-            </div>
-            </div>
-        </div>
-    </div>
-
-<!--BROWSE CUSTOMERS-->
-
-        <div class="container" style="display:none" id = "browse_Customers">
-            <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h1 id="customer_number">Number</h1>
+                <div class="row">
+                    <div class="col">
+                        <h1 id="customer_name">Customer</h1>
+                    </div>
                 </div>
-            </div>
-                <div class = "row">
-                <div class="col">
-                    <h1 id="customer_name">Customer</h1>
+                <div class="row">
+                    <div class="col">
+                        <h1 id="customer_phone">Telephone</h1 id="customer_phone">
+                    </div>
                 </div>
-                </div>
-            <div class = "row">
-                <div class = "col">
-                    <h1 id="customer_phone">Telephone</h1 id="customer_phone">
-                </div>
-            </div>
-                <div class = "row">
+                <div class="row">
                     <div class="col">
                         <p id="customer_notes">Notes</p>
                     </div>
                 </div>
             </div>
-            <div class = "container" id = "choice2">
-                <div class = "row align-items-center justify-content-center">
-                    <div class = "col text-center">
+
+            <!--PREV, DELETE, NEXT-->
+            <div class="container" id="choice2">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col text-center">
                         <button type="button" class="btn btn-secondary" id="prev_btn"><-</button>
                     </div>
-                    <div class = "col text-center">
+                    <div class="col text-center">
                         <button type="button" class="btn btn-secondary" id="del_btn">Delete</button>
                     </div>
-                    <div class = "col text-center">
+                    <div class="col text-center">
                         <button type="button" class="btn btn-secondary" id="next_btn">-></button>
                     </div>
                 </div>
             </div>
-            <div class = "container" id = "choice3" style="display:none">
-                <div class = "row align-items-center justify-content-center">
-                    <div class = "col text-center">
+
+            <!--DELETE OK ?-->
+            <div class="container" id="choice3" style="display:none">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col text-center">
                         <button type="button" class="btn btn-danger" id="delete_yes">YES</button>
                     </div>
-                    <div class = "col text-center">
+                    <div class="col text-center">
                         <button type="button" class="btn btn-secondary" id="delete_no">NO</button>
                     </div>
                 </div>
-
             </div>
-            </div>
-
+        </div>
     </main>
+    
     <!--FOOTER-->
     <footer class="footer">
         <div class="container sticky-bottom text-center text-monospace">
-            <span>Luka$ Soft 2019</span>
+            <span>Luka$Soft 2019</span>
         </div>
     </footer>
+    
     <!-- Optional JavaScript -->
     <script src="customers.js"></script>
+    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -167,8 +176,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-
-
 
 </body>
 

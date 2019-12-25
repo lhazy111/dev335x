@@ -4,7 +4,7 @@ body {
   }
   
   #mainwindow {
-    margin-top: 120px;
+    margin-top: 100px;
   }
   
   footer {
@@ -19,7 +19,7 @@ body {
   background-color: #eef5f5;
   }
   
-  div.home {
+  /*div.home {
     padding: 10px 20px 30px 20px;
     background-color: #ffffff;
     -webkit-border-radius: 6px;
@@ -35,7 +35,7 @@ body {
          -moz-border-radius: 6px;
               border-radius: 6px;
       box-shadow: 5px 5px 5px 5px #8c8c8c;
-  }
+  }*/
   
   h2 {
     font-size: 2em;

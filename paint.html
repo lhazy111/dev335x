@@ -9,13 +9,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!--MAIN CSS-->
     <link rel="stylesheet" href="main.css">
-    <title>BOB, tiles calculation</title>
+
+    <title>BOB, Paint calculation</title>
 </head>
 
 <body>
-    <!--TOP NAVIGATION-->
 
+    <!--TOP NAVIGATION-->
     <nav class="navbar navbar-default fixed-top navbar-expand-md navbar-dark bg-dark" role="navigation">
         <div class="container-fluid" id="topnav">
             <a class="navbar-brand font-weight-bold" href="index.html">Bob the Handyman</a>
@@ -38,12 +41,16 @@
             </div>
         </div>
     </nav>
+
     <!--JUMBOTRON-->
     <div class="jumbotron shadow">
         <h2>Paint calculation</h2>
     </div>
+    
     <!--M A I N   W I N D O W-->
     <main>
+
+    <!--INPUT FORM-->
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -73,23 +80,24 @@
                             <input type="number" step="0.01" class="form-control" id="bucket_price" name="bucket_price"
                                 placeholder="Input price for the bucket in monies">
                         </div>
-
                         <button type="submit" class="btn btn-secondary" id="calucalate_btn">Calculate</button>
                     </form>
                 </div>
             </div>
         </div>
+
+        <!--RESULTS-->
         <div class="container" id="calc_result" style="display:none">
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <div class="alert alert-dark" role="alert">
-                        <h2 class="alert-heading">Calculation result</h2>
-                        <hr>
-                        <h2>You need :</h2>
-                        <h2 id="litr">_</h2>
-                        <h2 id="buckets">_</h2>
-                        <h2 id="all_price">_</h2>
+                            <h2 class="alert-heading">Calculation result</h2>
+                            <hr>
+                            <h2>You need :</h2>
+                            <h2 id="litr">_</h2>
+                            <h2 id="buckets">_</h2>
+                            <h2 id="all_price">_</h2>
                         </div>
                         <button class="btn btn-secondary"><a class="text-reset text-decoration-none text-size"
                                 href="paint.html">New calculation</a></button>
@@ -101,7 +109,7 @@
     <!--FOOTER-->
     <footer class="footer">
         <div class="container sticky-bottom text-center text-monospace">
-            <span>Lukasz Hazy 2019</span>
+            <span>Lukas$oft 2019</span>
         </div>
     </footer>
     <!-- Optional JavaScript -->
@@ -117,9 +125,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-
-
-
 </body>
-
 </html>
