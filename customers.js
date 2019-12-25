@@ -1,3 +1,5 @@
+
+
 let formInput = document.getElementById('customers');
 let submit_Customer = document.getElementById("add_customer_btn");
 let main_Window = document.getElementById("main_Window");
